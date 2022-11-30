@@ -1,0 +1,86 @@
+package quanlicanbo;
+import java.util.Scanner;
+import quanlicanbo.CanBo;
+import quanlicanbo.CongNhan;
+import quanlicanbo.KySu;
+import quanlicanbo.NhanVien;
+import quanlicanbo.DSCB;
+
+
+public class QLcb {
+
+	public static void main(String[] args) {
+		DSCB ds= new DSCB();
+		Scanner sc = new Scanner(System.in);
+		int choose = 0;
+		do {	
+			System.out.println("-----------menu------------");
+	        System.out.println("1) Thêm mới cán bộ");
+	        System.out.println("2) Tìm kiếm theo họ tên.");
+	        System.out.println("3) Hiện thị thông tin về danh sách các cán bộ");
+	        System.out.println("4) Thoát chương trình.");
+	    
+		choose = Integer.parseInt(sc.nextLine());	
+	 switch(choose) {
+	 case 1:
+	 	  System.out.println("Nhập Số lượng: ");
+		       int sl = sc.nextInt();
+		       sc.nextLine();
+		       int i=1;
+		      while(sl!=0)			    	  
+					{	    	  
+		    	    System.out.println("Cán Bộ "+i+"\n");
+		    	    i=i+1;
+		    	    System.out.println("Vai trò:\n1.Kỹ Sư\n2.Công Nhân\n3.NhanVien");
+		    	    int vaitro=sc.nextInt();
+		    	    sc.nextLine();
+		    	    System.out.println("Nhập họ và tên: "); String hoVaTen = sc.nextLine();
+					System.out.println("Nhập năm sinh: ");  int namSinh=Integer.parseInt(sc.nextLine());  					
+					System.out.println("Nhập giới tính: "); String gioiTinh = sc.nextLine();
+					System.out.println("Nhập địa chỉ: "); String diaChi= sc.nextLine();	
+			
+					if(vaitro==1) {
+						System.out.println("Nhập ngành đào tạo: "); String nganhDaoTao= sc.nextLine();	
+						KySu ks = new KySu(hoVaTen,namSinh,gioiTinh,diaChi,nganhDaoTao);
+						ds.themCanBo(ks);
+					}
+					else if(vaitro==2) {
+						System.out.println("Nhập bậc: "); int bac= Integer.parseInt(sc.nextLine()); 
+						CongNhan cn = new CongNhan(hoVaTen,namSinh,gioiTinh,diaChi,bac);
+						ds.themCanBo(cn);
+					}else if (vaitro==3){
+						System.out.println("Nhập công việc: "); String congViec = sc.nextLine();
+						NhanVien nv = new NhanVien(hoVaTen,namSinh,gioiTinh,diaChi,congViec);
+						ds.themCanBo(nv);
+					}else {
+					CanBo cb = new CanBo(hoVaTen, namSinh, gioiTinh, diaChi);
+					ds.themCanBo(cb);
+					}					
+					sl--;
+		       }
+		      break;
+	 case 2:
+		 System.out.println("nhập họ và tên: ");String hoVaTen=sc.nextLine();
+		 System.out.println(hoVaTen);
+		 if(ds.kiemTraTonTai1(hoVaTen)==true) {
+			 
+		  ds.timCanBo(hoVaTen);			
+		 }
+		 else{ 
+			 System.out.println("--không tồn tại-- "+ds.kiemTraTonTai1(hoVaTen));
+		}
+		 break;
+	 case 3:  
+		  ds.indsCB();
+		 break;
+	 case 4:
+		 choose=0;
+		 break;
+	 default:
+         System.out.println("Không tồn tại");
+         break; 
+	 }	  	   	  
+} while (choose!=0);
+		}
+	}	
+
