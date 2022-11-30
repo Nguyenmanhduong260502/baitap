@@ -1,0 +1,24 @@
+package quanlicanbo;
+
+public class CongNhan extends CanBo{
+	private int bac;
+public CongNhan() {}
+	public CongNhan(String hoVaTen, int namSinh, String gioiTinh, String diaChi ,int bac) {
+		super(hoVaTen,namSinh,gioiTinh,diaChi);		
+		this.bac = bac;
+	}
+
+
+	public int getBac() {
+		return bac;
+	}
+
+	public void setBac(int bac) {
+		this.bac = bac;
+	}
+	public String toString() {
+		return "CongNhan: hoVaTen=" + this.getHoVaTen() + ", namSinh=" + this.getNamSinh() + ", gioiTinh=" + this.getGioiTinh() + ", diaChi=" + this.getDiaChi() + ", bac="+bac+"\n";
+	
+	}
+
+}
