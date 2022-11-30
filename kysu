@@ -1,0 +1,20 @@
+package quanlicanbo;
+
+public class KySu extends CanBo {
+ private String nganhDaoTao;
+public KySu() {}
+public KySu(String hoVaTen, int namSinh, String gioiTinh, String diaChi,String nganhDaoTao) {
+	super(hoVaTen,namSinh,gioiTinh,diaChi);
+	this.nganhDaoTao = nganhDaoTao;
+}
+public String getNganhDaoTao() {
+	return nganhDaoTao;
+}
+public void setNganhDaoTao(String nganhDaoTao) {
+	this.nganhDaoTao = nganhDaoTao;
+}
+
+public String toString() {
+	return "KySu: hoVaTen=" + this.getHoVaTen() + ", namSinh=" + this.getNamSinh() + ", gioiTinh=" + this.getGioiTinh() + ", diaChi=" + this.getDiaChi() + ", nganhdaotao="+nganhDaoTao+"\n";
+}
+}
