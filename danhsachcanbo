@@ -1,0 +1,43 @@
+package quanlicanbo;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.ArrayList;
+
+public class DSCB {
+ private ArrayList<CanBo> ds;
+ public DSCB() {
+		this.ds = new ArrayList<CanBo>();
+	}
+ 
+public DSCB(ArrayList<CanBo> ds) {
+	this.ds = ds;
+}
+
+
+public void themCanBo(CanBo a) {
+	this.ds.add(a);
+}
+
+public void timCanBo(String hoVaTen) {
+  for(CanBo canBo : ds) {	  
+		if(canBo.getHoVaTen().equals(hoVaTen)) {
+			  System.out.println(canBo);
+		  }
+	
+  }
+}
+  public void indsCB() {
+	  for(CanBo canBo : ds) {
+			  System.out.println(canBo);
+		  }
+	  }
+
+public boolean kiemTraTonTai1(String hoVaTen) { 
+	  for(CanBo canBo : ds) {
+		  if(canBo.getHoVaTen().contains(hoVaTen))
+			  return true;
+	  }
+	  return false;
+}
+}
+
